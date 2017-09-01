@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的博客主页</title>
+</head>
+<body>
+    <h1>欢迎来到德莱联盟!</h1>
+    <br><br>
+    {% for Art in Arts %}
+        <h1><a href="{% url 'blog:show' Art.id %}">{{ Art.title }}</a></h1>
+    {% endfor %}
+    <a href="{% url 'blog:edit' 0 %}">发表新文章</a>
+</body>
+</html>

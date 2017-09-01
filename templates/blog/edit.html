@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+</head>
+<body>
+    <form action="{% url 'blog:editAction'  %}" method="post">
+        {% csrf_token %}
+        {% if Art %}
+            <input type="hidden" value="{{ Art.id }}" name="id">
+            <label for="">原文中标题</label>
+            <input type="text" value="{{ Art.title }}" name="title">
+            <br>
+            <label for="">原内容</label>
+            <input type="text" value="{{ Art.content }}" name="content">
+            <br>
+        {% else %}
+            <input type="hidden" value="0" name="id">
+            <label for="">新建文章标题</label>
+            <input type="text" name="title">
+            <br>
+            <label for="">新建文章内容</label>
+            <input type="text" name="content">
+            <br>
+        {% endif %}
+        <input type="submit" value="确定提交">
+    </form>
+</body>
+</html>
